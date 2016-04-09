@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HMainViewController.h
 //  HWMusic
 //
 //  Created by admin on 16/4/9.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HMainViewController : UIViewController
 
 @end
-

@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		8426163A1CB88BE30079C1CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842616391CB88BE30079C1CB /* main.m */; };
 		8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426163C1CB88BE30079C1CB /* AppDelegate.m */; };
-		842616401CB88BE30079C1CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426163F1CB88BE30079C1CB /* ViewController.m */; };
 		842616431CB88BE30079C1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842616411CB88BE30079C1CB /* Main.storyboard */; };
 		842616451CB88BE30079C1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842616441CB88BE30079C1CB /* Assets.xcassets */; };
 		842616481CB88BE30079C1CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842616461CB88BE30079C1CB /* LaunchScreen.storyboard */; };
 		842616531CB88BE30079C1CB /* HWMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842616521CB88BE30079C1CB /* HWMusicTests.m */; };
 		8426165E1CB88BE30079C1CB /* HWMusicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426165D1CB88BE30079C1CB /* HWMusicUITests.m */; };
+		8426166D1CB88C0F0079C1CB /* HMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426166C1CB88C0F0079C1CB /* HMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		842616391CB88BE30079C1CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8426163B1CB88BE30079C1CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8426163C1CB88BE30079C1CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8426163E1CB88BE30079C1CB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8426163F1CB88BE30079C1CB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		842616421CB88BE30079C1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		842616441CB88BE30079C1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		842616471CB88BE30079C1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		842616591CB88BE30079C1CB /* HWMusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HWMusicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8426165D1CB88BE30079C1CB /* HWMusicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWMusicUITests.m; sourceTree = "<group>"; };
 		8426165F1CB88BE30079C1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8426166B1CB88C0F0079C1CB /* HMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMainViewController.h; sourceTree = "<group>"; };
+		8426166C1CB88C0F0079C1CB /* HMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +103,8 @@
 			children = (
 				8426163B1CB88BE30079C1CB /* AppDelegate.h */,
 				8426163C1CB88BE30079C1CB /* AppDelegate.m */,
-				8426163E1CB88BE30079C1CB /* ViewController.h */,
-				8426163F1CB88BE30079C1CB /* ViewController.m */,
+				8426166B1CB88C0F0079C1CB /* HMainViewController.h */,
+				8426166C1CB88C0F0079C1CB /* HMainViewController.m */,
 				842616411CB88BE30079C1CB /* Main.storyboard */,
 				842616441CB88BE30079C1CB /* Assets.xcassets */,
 				842616461CB88BE30079C1CB /* LaunchScreen.storyboard */,
@@ -273,8 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842616401CB88BE30079C1CB /* ViewController.m in Sources */,
 				8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */,
+				8426166D1CB88C0F0079C1CB /* HMainViewController.m in Sources */,
 				8426163A1CB88BE30079C1CB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
