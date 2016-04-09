@@ -16,6 +16,15 @@
 		8426165E1CB88BE30079C1CB /* HWMusicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426165D1CB88BE30079C1CB /* HWMusicUITests.m */; };
 		8426166D1CB88C0F0079C1CB /* HMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426166C1CB88C0F0079C1CB /* HMainViewController.m */; };
 		846476931CB8D946006C2BB3 /* HTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846476921CB8D946006C2BB3 /* HTTPManager.m */; };
+		846476981CB8E5D4006C2BB3 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 846476971CB8E5D4006C2BB3 /* Common.m */; };
+		8464769B1CB8E983006C2BB3 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8464769A1CB8E983006C2BB3 /* SwipeView.m */; };
+		8464769F1CB8EB28006C2BB3 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8464769E1CB8EB28006C2BB3 /* HNavigationController.m */; };
+		846476A21CB8EC4D006C2BB3 /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 846476A11CB8EC4D006C2BB3 /* nav_bg.png */; };
+		846476AB1CB8F6B1006C2BB3 /* HMusicTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846476AA1CB8F6B1006C2BB3 /* HMusicTypeViewController.m */; };
+		846476AE1CB8F6C6006C2BB3 /* HMusicHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846476AD1CB8F6C6006C2BB3 /* HMusicHotViewController.m */; };
+		846476B11CB8F6F2006C2BB3 /* HMusicSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846476B01CB8F6F2006C2BB3 /* HMusicSearchViewController.m */; };
+		846476B41CB8F700006C2BB3 /* HMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846476B31CB8F700006C2BB3 /* HMineViewController.m */; };
+		846476B71CB8F721006C2BB3 /* HMusicPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846476B61CB8F721006C2BB3 /* HMusicPlayerViewController.m */; };
 		84B67B601CB8AF2B0048BB57 /* HObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B67B5F1CB8AF2B0048BB57 /* HObject.m */; };
 		84B67B631CB8AFE90048BB57 /* HManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B67B621CB8AFE90048BB57 /* HManger.m */; };
 		BB4378B6B50FFDC37D573DBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E42DD6ACD692C6A49D8C383 /* libPods.a */; };
@@ -59,6 +68,24 @@
 		846476901CB8D926006C2BB3 /* HTTPConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPConstant.h; sourceTree = "<group>"; };
 		846476911CB8D946006C2BB3 /* HTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPManager.h; sourceTree = "<group>"; };
 		846476921CB8D946006C2BB3 /* HTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPManager.m; sourceTree = "<group>"; };
+		846476961CB8E5D4006C2BB3 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		846476971CB8E5D4006C2BB3 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		846476991CB8E983006C2BB3 /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		8464769A1CB8E983006C2BB3 /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		8464769D1CB8EB28006C2BB3 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
+		8464769E1CB8EB28006C2BB3 /* HNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNavigationController.m; sourceTree = "<group>"; };
+		846476A11CB8EC4D006C2BB3 /* nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bg.png; sourceTree = "<group>"; };
+		846476A91CB8F6B1006C2BB3 /* HMusicTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMusicTypeViewController.h; sourceTree = "<group>"; };
+		846476AA1CB8F6B1006C2BB3 /* HMusicTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMusicTypeViewController.m; sourceTree = "<group>"; };
+		846476AC1CB8F6C6006C2BB3 /* HMusicHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMusicHotViewController.h; sourceTree = "<group>"; };
+		846476AD1CB8F6C6006C2BB3 /* HMusicHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMusicHotViewController.m; sourceTree = "<group>"; };
+		846476AF1CB8F6F2006C2BB3 /* HMusicSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMusicSearchViewController.h; sourceTree = "<group>"; };
+		846476B01CB8F6F2006C2BB3 /* HMusicSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMusicSearchViewController.m; sourceTree = "<group>"; };
+		846476B21CB8F700006C2BB3 /* HMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMineViewController.h; sourceTree = "<group>"; };
+		846476B31CB8F700006C2BB3 /* HMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMineViewController.m; sourceTree = "<group>"; };
+		846476B51CB8F721006C2BB3 /* HMusicPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMusicPlayerViewController.h; sourceTree = "<group>"; };
+		846476B61CB8F721006C2BB3 /* HMusicPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMusicPlayerViewController.m; sourceTree = "<group>"; };
+		846476B81CB8F736006C2BB3 /* VCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCHeader.h; sourceTree = "<group>"; };
 		84B67B5E1CB8AF2B0048BB57 /* HObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HObject.h; sourceTree = "<group>"; };
 		84B67B5F1CB8AF2B0048BB57 /* HObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HObject.m; sourceTree = "<group>"; };
 		84B67B611CB8AFE90048BB57 /* HManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HManger.h; sourceTree = "<group>"; };
@@ -128,12 +155,12 @@
 		842616371CB88BE20079C1CB /* HWMusic */ = {
 			isa = PBXGroup;
 			children = (
+				846476A01CB8EC3E006C2BB3 /* Resoure */,
+				846476951CB8E5AF006C2BB3 /* Vendors */,
 				84B67B5D1CB8A89F0048BB57 /* ViewModel */,
 				84B67B5C1CB8A8970048BB57 /* View */,
 				84B67B5B1CB8A8870048BB57 /* Model */,
 				84B67B5A1CB8A8730048BB57 /* AppDelegate */,
-				8426166B1CB88C0F0079C1CB /* HMainViewController.h */,
-				8426166C1CB88C0F0079C1CB /* HMainViewController.m */,
 				842616411CB88BE30079C1CB /* Main.storyboard */,
 				842616441CB88BE30079C1CB /* Assets.xcassets */,
 				842616461CB88BE30079C1CB /* LaunchScreen.storyboard */,
@@ -170,6 +197,102 @@
 			path = HWMusicUITests;
 			sourceTree = "<group>";
 		};
+		846476941CB8E4E1006C2BB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				846476B81CB8F736006C2BB3 /* VCHeader.h */,
+				846476A31CB8F610006C2BB3 /* Main */,
+				846476A41CB8F61C006C2BB3 /* MusicType */,
+				846476A51CB8F629006C2BB3 /* MusicHot */,
+				846476A61CB8F635006C2BB3 /* MusicSearch */,
+				846476A71CB8F642006C2BB3 /* Mine */,
+				846476A81CB8F64B006C2BB3 /* MusicPlayer */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		846476951CB8E5AF006C2BB3 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				846476991CB8E983006C2BB3 /* SwipeView.h */,
+				8464769A1CB8E983006C2BB3 /* SwipeView.m */,
+				846476961CB8E5D4006C2BB3 /* Common.h */,
+				846476971CB8E5D4006C2BB3 /* Common.m */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		8464769C1CB8EB01006C2BB3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8464769D1CB8EB28006C2BB3 /* HNavigationController.h */,
+				8464769E1CB8EB28006C2BB3 /* HNavigationController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		846476A01CB8EC3E006C2BB3 /* Resoure */ = {
+			isa = PBXGroup;
+			children = (
+				846476A11CB8EC4D006C2BB3 /* nav_bg.png */,
+			);
+			name = Resoure;
+			sourceTree = "<group>";
+		};
+		846476A31CB8F610006C2BB3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8426166B1CB88C0F0079C1CB /* HMainViewController.h */,
+				8426166C1CB88C0F0079C1CB /* HMainViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		846476A41CB8F61C006C2BB3 /* MusicType */ = {
+			isa = PBXGroup;
+			children = (
+				846476A91CB8F6B1006C2BB3 /* HMusicTypeViewController.h */,
+				846476AA1CB8F6B1006C2BB3 /* HMusicTypeViewController.m */,
+			);
+			name = MusicType;
+			sourceTree = "<group>";
+		};
+		846476A51CB8F629006C2BB3 /* MusicHot */ = {
+			isa = PBXGroup;
+			children = (
+				846476AC1CB8F6C6006C2BB3 /* HMusicHotViewController.h */,
+				846476AD1CB8F6C6006C2BB3 /* HMusicHotViewController.m */,
+			);
+			name = MusicHot;
+			sourceTree = "<group>";
+		};
+		846476A61CB8F635006C2BB3 /* MusicSearch */ = {
+			isa = PBXGroup;
+			children = (
+				846476AF1CB8F6F2006C2BB3 /* HMusicSearchViewController.h */,
+				846476B01CB8F6F2006C2BB3 /* HMusicSearchViewController.m */,
+			);
+			name = MusicSearch;
+			sourceTree = "<group>";
+		};
+		846476A71CB8F642006C2BB3 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				846476B21CB8F700006C2BB3 /* HMineViewController.h */,
+				846476B31CB8F700006C2BB3 /* HMineViewController.m */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		846476A81CB8F64B006C2BB3 /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				846476B51CB8F721006C2BB3 /* HMusicPlayerViewController.h */,
+				846476B61CB8F721006C2BB3 /* HMusicPlayerViewController.m */,
+			);
+			name = MusicPlayer;
+			sourceTree = "<group>";
+		};
 		84B67B5A1CB8A8730048BB57 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +314,8 @@
 		84B67B5C1CB8A8970048BB57 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8464769C1CB8EB01006C2BB3 /* Base */,
+				846476941CB8E4E1006C2BB3 /* ViewController */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -327,6 +452,7 @@
 				842616481CB88BE30079C1CB /* LaunchScreen.storyboard in Resources */,
 				842616451CB88BE30079C1CB /* Assets.xcassets in Resources */,
 				842616431CB88BE30079C1CB /* Main.storyboard in Resources */,
+				846476A21CB8EC4D006C2BB3 /* nav_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,11 +526,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */,
+				846476AE1CB8F6C6006C2BB3 /* HMusicHotViewController.m in Sources */,
+				8464769B1CB8E983006C2BB3 /* SwipeView.m in Sources */,
+				846476B41CB8F700006C2BB3 /* HMineViewController.m in Sources */,
 				8426166D1CB88C0F0079C1CB /* HMainViewController.m in Sources */,
+				846476AB1CB8F6B1006C2BB3 /* HMusicTypeViewController.m in Sources */,
+				846476B11CB8F6F2006C2BB3 /* HMusicSearchViewController.m in Sources */,
 				8426163A1CB88BE30079C1CB /* main.m in Sources */,
+				846476B71CB8F721006C2BB3 /* HMusicPlayerViewController.m in Sources */,
 				846476931CB8D946006C2BB3 /* HTTPManager.m in Sources */,
 				84B67B601CB8AF2B0048BB57 /* HObject.m in Sources */,
 				84B67B631CB8AFE90048BB57 /* HManger.m in Sources */,
+				8464769F1CB8EB28006C2BB3 /* HNavigationController.m in Sources */,
+				846476981CB8E5D4006C2BB3 /* Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
