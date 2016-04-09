@@ -1,0 +1,13 @@
+//
+//  PrefixHeader.pch
+//  HWMusic
+//
+//  Created by admin on 16/4/9.
+//  Copyright © 2016年 he. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#import "HManger.h"
+
+#endif
