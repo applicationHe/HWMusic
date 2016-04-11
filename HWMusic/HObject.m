@@ -20,7 +20,7 @@
     return self;
 }
 
--(void)setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     
 }

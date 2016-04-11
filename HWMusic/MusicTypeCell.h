@@ -14,6 +14,6 @@
 
 @property (nonatomic,strong)UILabel * titleLabel;
 
--(void)initUI;
+-(void)initUIWith:(MusicTypeModel *)model;
 
 @end

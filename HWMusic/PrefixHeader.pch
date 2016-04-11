@@ -23,4 +23,6 @@
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
 
+#import "ModelHeader.h"
+
 #endif

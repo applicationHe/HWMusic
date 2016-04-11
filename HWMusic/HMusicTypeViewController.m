@@ -7,6 +7,9 @@
 //
 
 #import "HMusicTypeViewController.h"
+#import "MusicTypeCell.h"
+
+#define CELLID @"musictypecell"
 
 @interface HMusicTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -20,12 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    _dataSource = [[NSMutableArray alloc] init];
     
     
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-114)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
+    [_tableView registerClass:[MusicTypeCell class] forCellReuseIdentifier:CELLID];
     
     [self fetchDataFromNetwork];
 }
@@ -38,7 +43,17 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    MusicTypeCell * cell = [tableView dequeueReusableCellWithIdentifier:CELLID forIndexPath:indexPath];
+    if (_dataSource.count!=0) {
+        MusicTypeModel * model = _dataSource[indexPath.row];
+        [cell initUIWith:model];
+    }
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120.0f;
 }
 
 #pragma mark - UITableViewDelegate
@@ -53,7 +68,13 @@
  */
 -(void)fetchDataFromNetwork
 {
-    
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"musicType" ofType:@"plist"];
+    NSArray * array = [NSArray arrayWithContentsOfFile:path];
+    for (NSDictionary * dict in array) {
+        MusicTypeModel * model = [[MusicTypeModel alloc] initWithDictionary:dict];
+        [_dataSource addObject:model];
+    }
+    [_tableView reloadData];
 }
 
 

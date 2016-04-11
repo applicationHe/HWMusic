@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18075C7B1CBB547300BE5D14 /* MusicTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18075C7A1CBB547300BE5D14 /* MusicTypeModel.m */; };
 		181592E01CBB3EB30033299C /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 181592AA1CBB3EB30033299C /* background.jpg */; };
 		181592E11CBB3EB30033299C /* bkg_non_first_normal_theme1.png in Resources */ = {isa = PBXBuildFile; fileRef = 181592AB1CBB3EB30033299C /* bkg_non_first_normal_theme1.png */; };
 		181592E21CBB3EB30033299C /* btn_back_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 181592AC1CBB3EB30033299C /* btn_back_search.png */; };
@@ -126,6 +127,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18075C791CBB547300BE5D14 /* MusicTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTypeModel.h; sourceTree = "<group>"; };
+		18075C7A1CBB547300BE5D14 /* MusicTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTypeModel.m; sourceTree = "<group>"; };
+		18075C7C1CBB54B400BE5D14 /* ModelHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelHeader.h; sourceTree = "<group>"; };
 		181592AA1CBB3EB30033299C /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		181592AB1CBB3EB30033299C /* bkg_non_first_normal_theme1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg_non_first_normal_theme1.png; sourceTree = "<group>"; };
 		181592AC1CBB3EB30033299C /* btn_back_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back_search.png; sourceTree = "<group>"; };
@@ -551,6 +555,9 @@
 			children = (
 				84B67B5E1CB8AF2B0048BB57 /* HObject.h */,
 				84B67B5F1CB8AF2B0048BB57 /* HObject.m */,
+				18075C791CBB547300BE5D14 /* MusicTypeModel.h */,
+				18075C7A1CBB547300BE5D14 /* MusicTypeModel.m */,
+				18075C7C1CBB54B400BE5D14 /* ModelHeader.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -654,7 +661,7 @@
 				TargetAttributes = {
 					842616341CB88BE20079C1CB = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = GCA9DQ9GM8;
+						DevelopmentTeam = 432VJEDUYB;
 					};
 					8426164D1CB88BE30079C1CB = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -861,6 +868,7 @@
 				84B67B631CB8AFE90048BB57 /* HManger.m in Sources */,
 				8464769F1CB8EB28006C2BB3 /* HNavigationController.m in Sources */,
 				846476981CB8E5D4006C2BB3 /* Common.m in Sources */,
+				18075C7B1CBB547300BE5D14 /* MusicTypeModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,6 +1008,8 @@
 			baseConfigurationReference = 9A538AC9FF4F8FCEF01DE786 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HWMusic/PrefixHeader.pch;
 				INFOPLIST_FILE = HWMusic/Info.plist;
@@ -1007,6 +1017,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hwm.HWMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1015,6 +1026,8 @@
 			baseConfigurationReference = 8A3A6FEB4F007F505FF3D75B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HWMusic/PrefixHeader.pch;
 				INFOPLIST_FILE = HWMusic/Info.plist;
@@ -1022,6 +1035,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hwm.HWMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
