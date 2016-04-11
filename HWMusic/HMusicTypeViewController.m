@@ -8,8 +8,11 @@
 
 #import "HMusicTypeViewController.h"
 
-@interface HMusicTypeViewController ()
-
+@interface HMusicTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView * _tableView;
+    NSMutableArray * _dataSource;
+}
 @end
 
 @implementation HMusicTypeViewController
@@ -17,21 +20,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    
+    [self fetchDataFromNetwork];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _dataSource.count;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
 }
-*/
+
+#pragma mark - UITableViewDelegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark - Help Handle
+/**
+ *  获取数据源
+ */
+-(void)fetchDataFromNetwork
+{
+    
+}
+
 
 @end
