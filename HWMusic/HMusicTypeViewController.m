@@ -29,6 +29,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-114)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [self.view addSubview:_tableView];
     [_tableView registerClass:[MusicTypeCell class] forCellReuseIdentifier:CELLID];
     
@@ -48,12 +49,13 @@
         MusicTypeModel * model = _dataSource[indexPath.row];
         [cell initUIWith:model];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120.0f;
+    return 200.0f;
 }
 
 #pragma mark - UITableViewDelegate

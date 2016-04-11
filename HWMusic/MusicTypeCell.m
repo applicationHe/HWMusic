@@ -46,12 +46,13 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
-        [self.photoImageView addSubview:_titleLabel];
+        _titleLabel.font = [UIFont boldSystemFontOfSize:22];
+        [self addSubview:_titleLabel];
         __weak typeof(self)weakSelf = self;
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(40, 100));
-            make.left.equalTo(weakSelf.photoImageView).with.offset(2);
-            make.bottom.equalTo(weakSelf.photoImageView).with.offset(10);
+            make.size.mas_equalTo(CGSizeMake(200, 40));
+            make.left.equalTo(weakSelf.mas_left).with.offset(17);
+            make.bottom.equalTo(weakSelf.mas_bottom).with.offset(-15);
         }];
     }
     return _titleLabel;
