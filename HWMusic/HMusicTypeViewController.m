@@ -8,6 +8,7 @@
 
 #import "HMusicTypeViewController.h"
 #import "MusicTypeCell.h"
+#import "HPlayView.h"
 
 #define CELLID @"musictypecell"
 
@@ -34,6 +35,16 @@
     [_tableView registerClass:[MusicTypeCell class] forCellReuseIdentifier:CELLID];
     
     [self fetchDataFromNetwork];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    HPlayView * playView = [HPlayView sharePlayView];
+    playView.frame = CGRectMake(SCREEN_WIDTH-110, 10, 100, 100);
+    playView.layer.cornerRadius = 50.0f;
+    playView.layer.masksToBounds = YES;
+    [playView initUI];
+    [self.view addSubview:playView];
 }
 
 #pragma mark - UITableViewDataSource

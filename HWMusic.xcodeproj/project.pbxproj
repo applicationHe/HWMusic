@@ -86,6 +86,8 @@
 		181593441CBB3ED70033299C /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 1815932C1CBB3ED70033299C /* share.png */; };
 		181593451CBB3ED70033299C /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 1815932D1CBB3ED70033299C /* top.png */; };
 		181593491CBB3FA30033299C /* MusicTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181593481CBB3FA30033299C /* MusicTypeCell.m */; };
+		183701EB1CBCF8D500B1577D /* HPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701EA1CBCF8D500B1577D /* HPlayView.m */; };
+		183701EE1CBCFA0D00B1577D /* PlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701ED1CBCFA0D00B1577D /* PlayerHelper.m */; };
 		8426163A1CB88BE30079C1CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842616391CB88BE30079C1CB /* main.m */; };
 		8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426163C1CB88BE30079C1CB /* AppDelegate.m */; };
 		842616431CB88BE30079C1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842616411CB88BE30079C1CB /* Main.storyboard */; };
@@ -209,6 +211,10 @@
 		1815932D1CBB3ED70033299C /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
 		181593471CBB3FA30033299C /* MusicTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTypeCell.h; sourceTree = "<group>"; };
 		181593481CBB3FA30033299C /* MusicTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTypeCell.m; sourceTree = "<group>"; };
+		183701E91CBCF8D500B1577D /* HPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPlayView.h; sourceTree = "<group>"; };
+		183701EA1CBCF8D500B1577D /* HPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPlayView.m; sourceTree = "<group>"; };
+		183701EC1CBCFA0D00B1577D /* PlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHelper.h; sourceTree = "<group>"; };
+		183701ED1CBCFA0D00B1577D /* PlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHelper.m; sourceTree = "<group>"; };
 		5E42DD6ACD692C6A49D8C383 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		842616351CB88BE20079C1CB /* HWMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842616391CB88BE30079C1CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -397,6 +403,10 @@
 			children = (
 				8464769D1CB8EB28006C2BB3 /* HNavigationController.h */,
 				8464769E1CB8EB28006C2BB3 /* HNavigationController.m */,
+				183701E91CBCF8D500B1577D /* HPlayView.h */,
+				183701EA1CBCF8D500B1577D /* HPlayView.m */,
+				183701EC1CBCFA0D00B1577D /* PlayerHelper.h */,
+				183701ED1CBCFA0D00B1577D /* PlayerHelper.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -856,8 +866,10 @@
 				8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */,
 				846476AE1CB8F6C6006C2BB3 /* HMusicHotViewController.m in Sources */,
 				8464769B1CB8E983006C2BB3 /* SwipeView.m in Sources */,
+				183701EB1CBCF8D500B1577D /* HPlayView.m in Sources */,
 				846476B41CB8F700006C2BB3 /* HMineViewController.m in Sources */,
 				8426166D1CB88C0F0079C1CB /* HMainViewController.m in Sources */,
+				183701EE1CBCFA0D00B1577D /* PlayerHelper.m in Sources */,
 				846476AB1CB8F6B1006C2BB3 /* HMusicTypeViewController.m in Sources */,
 				846476B11CB8F6F2006C2BB3 /* HMusicSearchViewController.m in Sources */,
 				8426163A1CB88BE30079C1CB /* main.m in Sources */,
