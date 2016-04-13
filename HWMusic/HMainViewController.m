@@ -9,6 +9,7 @@
 #import "HMainViewController.h"
 #import "SwipeView.h"
 #import "VCHeader.h"
+#import "HPlayView.h"
 
 @interface HMainViewController ()<SwipeViewDataSource,SwipeViewDelegate>
 {
@@ -29,6 +30,19 @@
     UIButton * btn = _btnArr[0];
     [btn setTitleColor:RGB(242, 50, 84) forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:19];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    HPlayView * playView = [HPlayView sharePlayView];
+    playView.frame = CGRectMake(SCREEN_WIDTH-110, 10, 100, 100);
+    playView.layer.cornerRadius = 50.0f;
+    playView.layer.masksToBounds = YES;
+    [playView initUI];
+    [self.view addSubview:playView];
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
+    [playView addGestureRecognizer:pan];
 }
 
 #pragma mark - SwipeViewDataSource
@@ -109,6 +123,35 @@
     HMusicSearchViewController * searchVC = [[HMusicSearchViewController alloc] init];
     HMineViewController * mineVC = [[HMineViewController alloc] init];
     _items = @[typeVC,hotVC,searchVC,mineVC];
+}
+
+-(void)move:(UIPanGestureRecognizer *)recognizer
+{
+    CGPoint translation = [recognizer translationInView:self.view];
+    recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
+                                         recognizer.view.center.y + translation.y);
+    [recognizer setTranslation:CGPointZero inView:self.view];
+    
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        
+        CGPoint velocity = [recognizer velocityInView:self.view];
+        CGFloat magnitude = sqrtf((velocity.x * velocity.x) + (velocity.y * velocity.y));
+        CGFloat slideMult = magnitude / 200;
+        NSLog(@"magnitude: %f, slideMult: %f", magnitude, slideMult);
+        
+        float slideFactor = 0.1 * slideMult; // Increase for more of a slide
+        CGPoint finalPoint = CGPointMake(recognizer.view.center.x + (velocity.x * slideFactor),
+                                         recognizer.view.center.y + (velocity.y * slideFactor));
+        finalPoint.x = MIN(MAX(finalPoint.x, 0), self.view.bounds.size.width);
+        finalPoint.y = MIN(MAX(finalPoint.y, 0), self.view.bounds.size.height);
+        
+        [UIView animateWithDuration:slideFactor*2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            recognizer.view.center = finalPoint;
+            HPlayView * playView = [HPlayView sharePlayView];
+            playView.center = finalPoint;
+        } completion:nil];
+        
+    }
 }
 
 @end

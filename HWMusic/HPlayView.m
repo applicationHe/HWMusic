@@ -7,6 +7,7 @@
 //
 
 #import "HPlayView.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation HPlayView
 {
@@ -51,26 +52,85 @@
     [self addSubview:self.titleLabel];
     self.currentIndex = 0;
     [self createAni];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+    isPlaying = NO;
+    MusicModel * model = self.dataSource[self.currentIndex];
+    [self setModel:model];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(listeningRemoteControl:) name:@"music" object:nil];
+    
+//    [self setBackImage];
 }
 
--(void)play
+-(void)listeningRemoteControl:(NSNotification *)sender
 {
-    isPlaying = YES;
-    [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
-    MusicModel * model = self.dataSource[self.currentIndex];
+    NSDictionary * dict=sender.userInfo;
+    NSInteger order=[[dict objectForKey:@"order"] integerValue];
+    switch (order) {
+            //暂停
+        case UIEventSubtypeRemoteControlPause:
+        {
+           
+            [self pauseStreamer];
+            break;
+        }
+            //播放
+        case UIEventSubtypeRemoteControlPlay:
+        {
+            
+            [self playStreamer];
+            break;
+        }
+            //暂停播放切换
+        
+            //下一首
+        case UIEventSubtypeRemoteControlNextTrack:
+        {
+            [self playNextMusic];
+            break;
+        }
+            //上一首
+        case UIEventSubtypeRemoteControlPreviousTrack:
+        {
+            [self playPreMusic];
+            break;
+        }
+        default:
+            break;
+    }
+    
+}
+
+-(void)setlocakName
+{
+    NSMutableDictionary * songDict=[NSMutableDictionary dictionary];
+    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+        MusicModel * model = self.dataSource[self.currentIndex];
+    //歌名
+    [songDict setObject:model.name forKey:MPMediaItemPropertyTitle];
+    //歌手名
+    [songDict setObject:@"何万牡" forKey:MPMediaItemPropertyArtist];
+    //歌曲的总时间
+    [songDict setObject:[NSNumber numberWithDouble:CMTimeGetSeconds(self.playerItem.duration)] forKeyedSubscript:MPMediaItemPropertyPlaybackDuration];
+    //设置歌曲图片
+    MPMediaItemArtwork *imageItem=[[MPMediaItemArtwork alloc]initWithImage:[UIImage imageNamed:@"default.jpg"]];
+    [songDict setObject:imageItem forKey:MPMediaItemPropertyArtwork];
+    //设置控制中心歌曲信息
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songDict];
+        
+    }
+    
+}
+
+-(void)setModel:(MusicModel *)model
+{
     self.titleLabel.text = model.name;
     self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:model.url]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemAction:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
     [self.helper.aPlayer replaceCurrentItemWithPlayerItem:self.playerItem];
-    [self.helper.aPlayer play];
-    self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(handleActionTime:) userInfo:_playerItem repeats:YES];
-}
-
--(void)stop
-{
-    isPlaying = NO;
-    [self.helper.aPlayer pause];
-    [self.bgView.layer removeAnimationForKey:@"xuan"];
+    self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(handleActionTime:)userInfo:self.playerItem repeats:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemAction:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
 }
 
 -(UIImageView *)bgView
@@ -101,8 +161,10 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 80, 20)];
-        _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel.textColor = RGB(117, 46, 136);
+        _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
+        _titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
 }
@@ -111,28 +173,45 @@
 {
     isPlaying = !isPlaying;
     if (isPlaying) {
-        [self play];
+        [self.helper.aPlayer play];
+        [self setlocakName];
+        [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
+        self.playerTimer.fireDate = [NSDate date];
     }else
     {
-        [self stop];
+        [self.helper.aPlayer pause];
+        [self.bgView.layer removeAnimationForKey:@"xuan"];
+        self.playerTimer.fireDate = [NSDate distantFuture];
     }
 }
 
 -(void)goMusic:(id)sender
 {
-    if ([self respondsToSelector:@selector(goMusic)]) {
-        [self.delegate goMusic];
-    }
+    [self.playerTimer invalidate];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.currentItem = nil;
+        self.playerItem = nil;
+        self.currentIndex ++;
+        NSLog(@"%ld",self.currentIndex);
+        if (self.currentIndex == self.dataSource.count) {
+            self.currentIndex = 0;
+        }
+        MusicModel * model = self.dataSource[self.currentIndex];
+        [self setModel:model];
+    });
 }
 - (void)playerItemAction:(AVPlayerItem *)item {
     [self.playerTimer invalidate];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.currentItem = nil;
         self.playerItem = nil;
         self.currentIndex ++;
+        NSLog(@"%ld",self.currentIndex);
         if (self.currentIndex == self.dataSource.count) {
             self.currentIndex = 0;
         }
-        [self play];
+        MusicModel * model = self.dataSource[self.currentIndex];
+        [self setModel:model];
     });
 }
 
@@ -156,6 +235,63 @@
     _ani.values = muArr;
     _ani.repeatCount = MAXFLOAT;
     _ani.duration = 2.0f;
+}
+
+-(void)didBecomeActive
+{
+    if (isPlaying) {
+       [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
+    }
+}
+
+-(void)pauseStreamer
+{
+    [self.helper.aPlayer pause];
+    [self.bgView.layer removeAnimationForKey:@"xuan"];
+    self.playerTimer.fireDate = [NSDate distantFuture];
+}
+
+-(void)playStreamer
+{
+    [self.helper.aPlayer play];
+    [self setlocakName];
+    [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
+    self.playerTimer.fireDate = [NSDate date];
+}
+
+-(void)playNextMusic
+{
+    [self.playerTimer invalidate];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.currentItem = nil;
+        self.playerItem = nil;
+        self.currentIndex ++;
+        NSLog(@"%ld",self.currentIndex);
+        if (self.currentIndex == self.dataSource.count) {
+            self.currentIndex = 0;
+        }
+        MusicModel * model = self.dataSource[self.currentIndex];
+        [self setModel:model];
+        [self setlocakName];
+    });
+//    MPMediaItemArtwork 
+}
+
+-(void)playPreMusic
+{
+    [self.playerTimer invalidate];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.currentItem = nil;
+        self.playerItem = nil;
+        self.currentIndex --;
+        NSLog(@"%ld",self.currentIndex);
+        if (self.currentIndex == -1) {
+            self.currentIndex = self.dataSource.count-1;
+        }
+        MusicModel * model = self.dataSource[self.currentIndex];
+        [self setModel:model];
+        [self setlocakName];
+    });
 }
 
 @end

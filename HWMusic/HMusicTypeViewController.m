@@ -39,12 +39,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    HPlayView * playView = [HPlayView sharePlayView];
-    playView.frame = CGRectMake(SCREEN_WIDTH-110, 10, 100, 100);
-    playView.layer.cornerRadius = 50.0f;
-    playView.layer.masksToBounds = YES;
-    [playView initUI];
-    [self.view addSubview:playView];
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -89,6 +84,7 @@
     }
     [_tableView reloadData];
 }
+
 
 
 @end

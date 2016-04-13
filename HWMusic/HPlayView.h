@@ -19,6 +19,8 @@
 
 @interface HPlayView : UIView
 
+@property (nonatomic,assign)CGPoint center;
+
 @property (nonatomic,strong)UIImageView * bgView;
 
 @property (nonatomic,strong)AVPlayerItem * playerItem;
@@ -40,5 +42,6 @@
 +(instancetype)sharePlayView;
 
 -(void)initUI;
+
 
 @end
