@@ -26,8 +26,9 @@
         self.aPlayer = [[AVQueuePlayer alloc] init];
     }
     AVAudioSession * session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategorySoloAmbient error:nil];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:YES error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     return self;
 }
 

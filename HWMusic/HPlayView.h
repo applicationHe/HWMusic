@@ -10,15 +10,32 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PlayerHelper.h"
 
+@protocol PlayDelegate <NSObject>
+
+-(void)goMusic;
+
+@end
+
+
 @interface HPlayView : UIView
 
-@property (nonatomic,strong)UIView * bgView;
+@property (nonatomic,strong)UIImageView * bgView;
 
 @property (nonatomic,strong)AVPlayerItem * playerItem;
 
 @property (nonatomic,strong)AVPlayerItem * currentItem;
 
+@property (nonatomic,assign)NSInteger currentIndex;
+
 @property (nonatomic,strong)NSTimer * playerTimer;
+
+@property (nonatomic,strong)NSMutableArray * dataSource;
+
+@property (nonatomic,strong)UILabel * titleLabel;
+
+@property (nonatomic,strong)PlayerHelper * helper;
+
+@property (nonatomic,weak)id<PlayDelegate>delegate;
 
 +(instancetype)sharePlayView;
 

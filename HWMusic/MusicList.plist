@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>url</key>
+		<string>http://sc1.111ttt.com/2016/5/02/25/195251254501.mp3</string>
+		<key>name</key>
+		<string>酒干倘卖无</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://sc1.111ttt.com/2016/1/02/25/195251205362.mp3</string>
+		<key>name</key>
+		<string>我爱漂亮女孩</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://sc1.111ttt.com/2016/1/02/25/195251203238.mp3</string>
+		<key>name</key>
+		<string>你拿什么来爱我</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://sc1.111ttt.com/2016/1/02/25/195251148097.mp3</string>
+		<key>name</key>
+		<string>轮回</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://sc1.111ttt.com/2016/1/02/25/195251035000.mp3</string>
+		<key>name</key>
+		<string>好姑娘</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://sc1.111ttt.com/2016/5/02/24/195241321574.mp3</string>
+		<key>name</key>
+		<string>有一天</string>
+	</dict>
+</array>
+</plist>

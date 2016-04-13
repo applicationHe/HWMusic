@@ -88,6 +88,8 @@
 		181593491CBB3FA30033299C /* MusicTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181593481CBB3FA30033299C /* MusicTypeCell.m */; };
 		183701EB1CBCF8D500B1577D /* HPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701EA1CBCF8D500B1577D /* HPlayView.m */; };
 		183701EE1CBCFA0D00B1577D /* PlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701ED1CBCFA0D00B1577D /* PlayerHelper.m */; };
+		183CDC291CBDE8D2005502DB /* MusicList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183CDC281CBDE8D2005502DB /* MusicList.plist */; };
+		183CDC2C1CBDECE7005502DB /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CDC2B1CBDECE7005502DB /* MusicModel.m */; };
 		8426163A1CB88BE30079C1CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842616391CB88BE30079C1CB /* main.m */; };
 		8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426163C1CB88BE30079C1CB /* AppDelegate.m */; };
 		842616431CB88BE30079C1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842616411CB88BE30079C1CB /* Main.storyboard */; };
@@ -215,6 +217,9 @@
 		183701EA1CBCF8D500B1577D /* HPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPlayView.m; sourceTree = "<group>"; };
 		183701EC1CBCFA0D00B1577D /* PlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHelper.h; sourceTree = "<group>"; };
 		183701ED1CBCFA0D00B1577D /* PlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHelper.m; sourceTree = "<group>"; };
+		183CDC281CBDE8D2005502DB /* MusicList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MusicList.plist; sourceTree = "<group>"; };
+		183CDC2A1CBDECE7005502DB /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
+		183CDC2B1CBDECE7005502DB /* MusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
 		5E42DD6ACD692C6A49D8C383 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		842616351CB88BE20079C1CB /* HWMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842616391CB88BE30079C1CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -341,6 +346,8 @@
 				842616441CB88BE30079C1CB /* Assets.xcassets */,
 				842616461CB88BE30079C1CB /* LaunchScreen.storyboard */,
 				842616491CB88BE30079C1CB /* Info.plist */,
+				181592CC1CBB3EB30033299C /* musicType.plist */,
+				183CDC281CBDE8D2005502DB /* MusicList.plist */,
 				842616381CB88BE30079C1CB /* Supporting Files */,
 			);
 			path = HWMusic;
@@ -491,7 +498,6 @@
 				181592DE1CBB3EB30033299C /* song_list_item_pause.png */,
 				181592DF1CBB3EB30033299C /* song_list_item_play.png */,
 				846476A11CB8EC4D006C2BB3 /* nav_bg.png */,
-				181592CC1CBB3EB30033299C /* musicType.plist */,
 			);
 			name = Resoure;
 			sourceTree = "<group>";
@@ -563,11 +569,13 @@
 		84B67B5B1CB8A8870048BB57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				18075C7C1CBB54B400BE5D14 /* ModelHeader.h */,
 				84B67B5E1CB8AF2B0048BB57 /* HObject.h */,
 				84B67B5F1CB8AF2B0048BB57 /* HObject.m */,
 				18075C791CBB547300BE5D14 /* MusicTypeModel.h */,
 				18075C7A1CBB547300BE5D14 /* MusicTypeModel.m */,
-				18075C7C1CBB54B400BE5D14 /* ModelHeader.h */,
+				183CDC2A1CBDECE7005502DB /* MusicModel.h */,
+				183CDC2B1CBDECE7005502DB /* MusicModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -671,7 +679,6 @@
 				TargetAttributes = {
 					842616341CB88BE20079C1CB = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = ZK6ZYHT9S3;
 					};
 					8426164D1CB88BE30079C1CB = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -710,6 +717,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183CDC291CBDE8D2005502DB /* MusicList.plist in Resources */,
 				181592F81CBB3EB30033299C /* icon_myfriends@2x.png in Resources */,
 				181593371CBB3ED70033299C /* line4.png in Resources */,
 				181593421CBB3ED70033299C /* repeat3.png in Resources */,
@@ -875,6 +883,7 @@
 				8426163A1CB88BE30079C1CB /* main.m in Sources */,
 				846476B71CB8F721006C2BB3 /* HMusicPlayerViewController.m in Sources */,
 				846476931CB8D946006C2BB3 /* HTTPManager.m in Sources */,
+				183CDC2C1CBDECE7005502DB /* MusicModel.m in Sources */,
 				181593491CBB3FA30033299C /* MusicTypeCell.m in Sources */,
 				84B67B601CB8AF2B0048BB57 /* HObject.m in Sources */,
 				84B67B631CB8AFE90048BB57 /* HManger.m in Sources */,

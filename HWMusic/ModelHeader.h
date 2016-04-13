@@ -10,5 +10,6 @@
 #define ModelHeader_h
 
 #import "MusicTypeModel.h"
+#import "MusicModel.h"
 
 #endif /* ModelHeader_h */
