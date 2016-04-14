@@ -10,4 +10,8 @@
 
 @interface HManger : NSObject
 
+@property (nonatomic,strong)NSMutableArray * downArray;
+
++(instancetype)shareManager;
+
 @end

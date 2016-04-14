@@ -7,31 +7,54 @@
 //
 
 #import "HMusicSearchViewController.h"
+#import "MusicDownCell.h"
 
-@interface HMusicSearchViewController ()
+#define CELLIDENTIFIER @"cell"
 
+@interface HMusicSearchViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView * _tableView;
+    NSMutableArray * _dataSource;
+}
 @end
 
 @implementation HMusicSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    _dataSource = [[NSMutableArray alloc] init];
+
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-114)];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [_tableView setTableFooterView:[UIView new]];
+    [_tableView registerClass:[MusicDownCell class] forCellReuseIdentifier:CELLIDENTIFIER];
+    [self.view addSubview:_tableView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(down:) name:@"down" object:nil];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITableViewDataSource And TableViewDelegate
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _dataSource.count;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MusicDownCell * cell = [tableView dequeueReusableCellWithIdentifier:CELLIDENTIFIER forIndexPath:indexPath];
+    return cell;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Help
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)down:(NSNotification *)no
+{
+    NSLog(@"%@",[no.userInfo objectForKey:@"url"]);
 }
-*/
+
+
 
 @end

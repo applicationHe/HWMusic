@@ -10,4 +10,6 @@
 
 @interface HMusicHotViewController : UIViewController
 
+@property (nonatomic,strong)UIViewController * superVC;
+
 @end

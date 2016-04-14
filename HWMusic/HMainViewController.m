@@ -11,7 +11,7 @@
 #import "VCHeader.h"
 #import "HPlayView.h"
 
-@interface HMainViewController ()<SwipeViewDataSource,SwipeViewDelegate>
+@interface HMainViewController ()<SwipeViewDataSource,SwipeViewDelegate,UIGestureRecognizerDelegate>
 {
     NSMutableArray * _btnArr;
     NSArray * _titleArr;
@@ -59,8 +59,13 @@
     return _swipeView.bounds.size;
 }
 #pragma mark - SwipeViewDelegate
+
 -(void)swipeViewDidScroll:(SwipeView *)swipeView
 {
+//    if (swipeView.currentItemIndex==1) {
+//        self.navigationItem.rightBarButtonItem = nil;
+//    }
+    
     UIButton * button = _btnArr[swipeView.currentItemIndex];
     for (UIButton * btn in _btnArr) {
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -71,6 +76,13 @@
         [button setTitleColor:RGB(242, 50, 84) forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont boldSystemFontOfSize:19];
     }];
+}
+
+-(void)swipeViewWillBeginDragging:(SwipeView *)swipeView
+{
+    if (swipeView.currentItemIndex==1) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 #pragma mark - Event
@@ -92,7 +104,7 @@
 #pragma mark - Help Handle
 -(void)createUI
 {
-    _titleArr = @[@"音库",@"热听",@"搜索",@"我的"];
+    _titleArr = @[@"音库",@"播放列表",@"下载",@"我的"];
     for (int i=0; i<_titleArr.count; i++) {
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(i*SCREEN_WIDTH/4.0f, SCREEN_HEIGHT-64-50, SCREEN_WIDTH/4.0f, 50)];
         button.backgroundColor = RGB(117, 46, 136);
@@ -120,6 +132,7 @@
 {
     HMusicTypeViewController * typeVC = [[HMusicTypeViewController alloc] init];
     HMusicHotViewController * hotVC = [[HMusicHotViewController alloc] init];
+    hotVC.superVC = self;
     HMusicSearchViewController * searchVC = [[HMusicSearchViewController alloc] init];
     HMineViewController * mineVC = [[HMineViewController alloc] init];
     _items = @[typeVC,hotVC,searchVC,mineVC];
@@ -152,6 +165,17 @@
         } completion:nil];
         
     }
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    NSLog(@"%@", NSStringFromClass([touch.view class]));
+    
+    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

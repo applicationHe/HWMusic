@@ -88,6 +88,8 @@
 		181593491CBB3FA30033299C /* MusicTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181593481CBB3FA30033299C /* MusicTypeCell.m */; };
 		183701EB1CBCF8D500B1577D /* HPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701EA1CBCF8D500B1577D /* HPlayView.m */; };
 		183701EE1CBCFA0D00B1577D /* PlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701ED1CBCFA0D00B1577D /* PlayerHelper.m */; };
+		183900F01CBF36D80070D391 /* MusicHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183900EF1CBF36D80070D391 /* MusicHotCell.m */; };
+		183900F41CBF4E290070D391 /* MusicDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183900F31CBF4E290070D391 /* MusicDownCell.m */; };
 		183CDC291CBDE8D2005502DB /* MusicList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183CDC281CBDE8D2005502DB /* MusicList.plist */; };
 		183CDC2C1CBDECE7005502DB /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CDC2B1CBDECE7005502DB /* MusicModel.m */; };
 		8426163A1CB88BE30079C1CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842616391CB88BE30079C1CB /* main.m */; };
@@ -217,6 +219,10 @@
 		183701EA1CBCF8D500B1577D /* HPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPlayView.m; sourceTree = "<group>"; };
 		183701EC1CBCFA0D00B1577D /* PlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHelper.h; sourceTree = "<group>"; };
 		183701ED1CBCFA0D00B1577D /* PlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHelper.m; sourceTree = "<group>"; };
+		183900EE1CBF36D80070D391 /* MusicHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicHotCell.h; sourceTree = "<group>"; };
+		183900EF1CBF36D80070D391 /* MusicHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicHotCell.m; sourceTree = "<group>"; };
+		183900F21CBF4E290070D391 /* MusicDownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicDownCell.h; sourceTree = "<group>"; };
+		183900F31CBF4E290070D391 /* MusicDownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicDownCell.m; sourceTree = "<group>"; };
 		183CDC281CBDE8D2005502DB /* MusicList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MusicList.plist; sourceTree = "<group>"; };
 		183CDC2A1CBDECE7005502DB /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
 		183CDC2B1CBDECE7005502DB /* MusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
@@ -298,6 +304,24 @@
 			children = (
 				181593471CBB3FA30033299C /* MusicTypeCell.h */,
 				181593481CBB3FA30033299C /* MusicTypeCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		183900ED1CBF36B30070D391 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				183900EE1CBF36D80070D391 /* MusicHotCell.h */,
+				183900EF1CBF36D80070D391 /* MusicHotCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		183900F11CBF4E0A0070D391 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				183900F21CBF4E290070D391 /* MusicDownCell.h */,
+				183900F31CBF4E290070D391 /* MusicDownCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -524,6 +548,7 @@
 		846476A51CB8F629006C2BB3 /* MusicHot */ = {
 			isa = PBXGroup;
 			children = (
+				183900ED1CBF36B30070D391 /* Cell */,
 				846476AC1CB8F6C6006C2BB3 /* HMusicHotViewController.h */,
 				846476AD1CB8F6C6006C2BB3 /* HMusicHotViewController.m */,
 			);
@@ -533,6 +558,7 @@
 		846476A61CB8F635006C2BB3 /* MusicSearch */ = {
 			isa = PBXGroup;
 			children = (
+				183900F11CBF4E0A0070D391 /* Cell */,
 				846476AF1CB8F6F2006C2BB3 /* HMusicSearchViewController.h */,
 				846476B01CB8F6F2006C2BB3 /* HMusicSearchViewController.m */,
 			);
@@ -880,6 +906,8 @@
 				183701EE1CBCFA0D00B1577D /* PlayerHelper.m in Sources */,
 				846476AB1CB8F6B1006C2BB3 /* HMusicTypeViewController.m in Sources */,
 				846476B11CB8F6F2006C2BB3 /* HMusicSearchViewController.m in Sources */,
+				183900F01CBF36D80070D391 /* MusicHotCell.m in Sources */,
+				183900F41CBF4E290070D391 /* MusicDownCell.m in Sources */,
 				8426163A1CB88BE30079C1CB /* main.m in Sources */,
 				846476B71CB8F721006C2BB3 /* HMusicPlayerViewController.m in Sources */,
 				846476931CB8D946006C2BB3 /* HTTPManager.m in Sources */,
