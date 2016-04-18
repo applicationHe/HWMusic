@@ -20,4 +20,12 @@
     return manager;
 }
 
+-(NSMutableArray *)downArray
+{
+    if (!_downArray) {
+        _downArray = [[NSMutableArray alloc] init];
+    }
+    return _downArray;
+}
+
 @end

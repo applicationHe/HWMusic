@@ -86,6 +86,9 @@
 		181593441CBB3ED70033299C /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 1815932C1CBB3ED70033299C /* share.png */; };
 		181593451CBB3ED70033299C /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 1815932D1CBB3ED70033299C /* top.png */; };
 		181593491CBB3FA30033299C /* MusicTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181593481CBB3FA30033299C /* MusicTypeCell.m */; };
+		1828F7A11CC4DD0A007A90A9 /* HSDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828F79B1CC4DD0A007A90A9 /* HSDownloadManager.m */; };
+		1828F7A21CC4DD0A007A90A9 /* HSSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828F79D1CC4DD0A007A90A9 /* HSSessionModel.m */; };
+		1828F7A31CC4DD0A007A90A9 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828F7A01CC4DD0A007A90A9 /* NSString+Hash.m */; };
 		183701EB1CBCF8D500B1577D /* HPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701EA1CBCF8D500B1577D /* HPlayView.m */; };
 		183701EE1CBCFA0D00B1577D /* PlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 183701ED1CBCFA0D00B1577D /* PlayerHelper.m */; };
 		183900F01CBF36D80070D391 /* MusicHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183900EF1CBF36D80070D391 /* MusicHotCell.m */; };
@@ -215,6 +218,12 @@
 		1815932D1CBB3ED70033299C /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
 		181593471CBB3FA30033299C /* MusicTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTypeCell.h; sourceTree = "<group>"; };
 		181593481CBB3FA30033299C /* MusicTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTypeCell.m; sourceTree = "<group>"; };
+		1828F79A1CC4DD0A007A90A9 /* HSDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDownloadManager.h; sourceTree = "<group>"; };
+		1828F79B1CC4DD0A007A90A9 /* HSDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDownloadManager.m; sourceTree = "<group>"; };
+		1828F79C1CC4DD0A007A90A9 /* HSSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSSessionModel.h; sourceTree = "<group>"; };
+		1828F79D1CC4DD0A007A90A9 /* HSSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSSessionModel.m; sourceTree = "<group>"; };
+		1828F79F1CC4DD0A007A90A9 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		1828F7A01CC4DD0A007A90A9 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		183701E91CBCF8D500B1577D /* HPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPlayView.h; sourceTree = "<group>"; };
 		183701EA1CBCF8D500B1577D /* HPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPlayView.m; sourceTree = "<group>"; };
 		183701EC1CBCFA0D00B1577D /* PlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHelper.h; sourceTree = "<group>"; };
@@ -306,6 +315,27 @@
 				181593481CBB3FA30033299C /* MusicTypeCell.m */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		1828F7991CC4DD0A007A90A9 /* HSDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				1828F79A1CC4DD0A007A90A9 /* HSDownloadManager.h */,
+				1828F79B1CC4DD0A007A90A9 /* HSDownloadManager.m */,
+				1828F79C1CC4DD0A007A90A9 /* HSSessionModel.h */,
+				1828F79D1CC4DD0A007A90A9 /* HSSessionModel.m */,
+				1828F79E1CC4DD0A007A90A9 /* MD5 */,
+			);
+			path = HSDownloadManager;
+			sourceTree = "<group>";
+		};
+		1828F79E1CC4DD0A007A90A9 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				1828F79F1CC4DD0A007A90A9 /* NSString+Hash.h */,
+				1828F7A01CC4DD0A007A90A9 /* NSString+Hash.m */,
+			);
+			path = MD5;
 			sourceTree = "<group>";
 		};
 		183900ED1CBF36B30070D391 /* Cell */ = {
@@ -421,6 +451,7 @@
 		846476951CB8E5AF006C2BB3 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				1828F7991CC4DD0A007A90A9 /* HSDownloadManager */,
 				846476991CB8E983006C2BB3 /* SwipeView.h */,
 				8464769A1CB8E983006C2BB3 /* SwipeView.m */,
 				846476961CB8E5D4006C2BB3 /* Common.h */,
@@ -897,6 +928,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1828F7A21CC4DD0A007A90A9 /* HSSessionModel.m in Sources */,
+				1828F7A31CC4DD0A007A90A9 /* NSString+Hash.m in Sources */,
 				8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */,
 				846476AE1CB8F6C6006C2BB3 /* HMusicHotViewController.m in Sources */,
 				8464769B1CB8E983006C2BB3 /* SwipeView.m in Sources */,
@@ -909,6 +942,7 @@
 				183900F01CBF36D80070D391 /* MusicHotCell.m in Sources */,
 				183900F41CBF4E290070D391 /* MusicDownCell.m in Sources */,
 				8426163A1CB88BE30079C1CB /* main.m in Sources */,
+				1828F7A11CC4DD0A007A90A9 /* HSDownloadManager.m in Sources */,
 				846476B71CB8F721006C2BB3 /* HMusicPlayerViewController.m in Sources */,
 				846476931CB8D946006C2BB3 /* HTTPManager.m in Sources */,
 				183CDC2C1CBDECE7005502DB /* MusicModel.m in Sources */,

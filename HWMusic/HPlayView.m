@@ -7,12 +7,15 @@
 //
 
 #import "HPlayView.h"
+#import "HSDownloadManager/HSDownloadManager.h"
+#import "NSString+Hash.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @implementation HPlayView
 {
     BOOL isPlaying;
     CAKeyframeAnimation * _ani;
+    HSDownloadManager * _downManager;
 }
 +(instancetype)sharePlayView
 {
@@ -52,6 +55,7 @@
     [self addSubview:self.titleLabel];
     self.currentIndex = 0;
     [self createAni];
+    _downManager = [HSDownloadManager sharedInstance];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
     isPlaying = NO;
     MusicModel * model = self.dataSource[self.currentIndex];
@@ -127,7 +131,19 @@
 -(void)setModel:(MusicModel *)model
 {
     self.titleLabel.text = model.name;
-    self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:model.url]];
+    BOOL isdown = [_downManager isCompletion:model.url];
+    if (isdown) {
+        NSString * path = (NSString *)HSFileFullpath(model.url);
+        NSLog(@"缓存路径====%@",path);
+//        AVQueuePlayer * player = [[AVQueuePlayer alloc] initWithURL:[NSURL fileURLWithPath:path]];
+        self.playerItem = [AVPlayerItem playerItemWithURL:[[NSURL alloc] initFileURLWithPath:path]];
+        AVQueuePlayer * player = [AVQueuePlayer playerWithURL:[NSURL fileURLWithPath:path]];
+//        [self.helper.aPlayer ]
+        self.helper.aPlayer = player;
+    }else
+    {
+         self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:model.url]];
+    }
     [self.helper.aPlayer replaceCurrentItemWithPlayerItem:self.playerItem];
     self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(handleActionTime:)userInfo:self.playerItem repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemAction:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
