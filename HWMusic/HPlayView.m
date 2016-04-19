@@ -10,12 +10,15 @@
 #import "HSDownloadManager/HSDownloadManager.h"
 #import "NSString+Hash.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "MusicImageView.h"
 
 @implementation HPlayView
 {
     BOOL isPlaying;
     CAKeyframeAnimation * _ani;
     HSDownloadManager * _downManager;
+    MusicImageView * _imageView;
+    NSTimer *_timer;
 }
 +(instancetype)sharePlayView
 {
@@ -64,8 +67,48 @@
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(listeningRemoteControl:) name:@"music" object:nil];
-    
+    _imageView = [[MusicImageView alloc] initWithFrame:CGRectMake(-250, -250, 250, 250)];
+    _imageView.imageName = @"default";
+    _imageView.text = @"我呵呵呵呵呵呵";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageChange:) name:@"123" object:nil];
+    [self addSubview:_imageView];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(changetext:) userInfo:nil repeats:YES];
+    _timer.fireDate = [NSDate distantFuture];
 //    [self setBackImage];
+}
+
+-(void)changetext:(id)sender
+{
+    static int time;
+    time +=1;
+    NSLog(@"时间:%d",time);
+    if (time%3==0) {
+        [_imageView removeFromSuperview];
+        _imageView = [[MusicImageView alloc] initWithFrame:CGRectMake(-250, -250, 250, 250)];
+        _imageView.text = @"我去去去去秋千";
+         _imageView.imageName = @"default";
+        [self addSubview:_imageView];
+    }else if (time%3==1)
+    {
+        [_imageView removeFromSuperview];
+        _imageView = [[MusicImageView alloc] initWithFrame:CGRectMake(-250, -250, 250, 250)];
+        _imageView.text = @"我擦啊擦擦擦擦";
+         _imageView.imageName = @"default";
+        [self addSubview:_imageView];
+    }else
+    {
+        [_imageView removeFromSuperview];
+        _imageView = [[MusicImageView alloc] initWithFrame:CGRectMake(-250, -250, 250, 250)];
+        _imageView.text = @"我呵呵呵呵呵呵";
+         _imageView.imageName = @"default";
+        [self addSubview:_imageView];
+    }
+    
+}
+
+-(void)imageChange:(id)sender
+{
+    [self setlocakName];
 }
 
 -(void)listeningRemoteControl:(NSNotification *)sender
@@ -88,7 +131,11 @@
             break;
         }
             //暂停播放切换
-        
+        case UIEventSubtypeRemoteControlTogglePlayPause:
+        {
+            [self playNextMusic];
+            break;
+        }
             //下一首
         case UIEventSubtypeRemoteControlNextTrack:
         {
@@ -117,10 +164,12 @@
     //歌手名
     [songDict setObject:@"何万牡" forKey:MPMediaItemPropertyArtist];
     //歌曲的总时间
-    [songDict setObject:[NSNumber numberWithDouble:CMTimeGetSeconds(self.playerItem.duration)] forKeyedSubscript:MPMediaItemPropertyPlaybackDuration];
+    [songDict setObject:[NSNumber numberWithDouble:CMTimeGetSeconds(self.playerItem.duration)] forKey:MPMediaItemPropertyPlaybackDuration];
+//        [songDict setObject:[NSNumber numberWithFloat:1.22f] forKeyedSubscript:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        [songDict setObject:[NSNumber numberWithFloat:55.0f] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
     //设置歌曲图片
-    UIImage * image = [self addText:[UIImage imageNamed:@"default.jpg"] text:@"abc"];
-    MPMediaItemArtwork *imageItem=[[MPMediaItemArtwork alloc]initWithImage:image];
+//    UIImage * image = [self addText:_imageView.myimage text:@"我感动天,感动地"];
+    MPMediaItemArtwork *imageItem=[[MPMediaItemArtwork alloc]initWithImage:_imageView.myimage];
     [songDict setObject:imageItem forKey:MPMediaItemPropertyArtwork];
     //设置控制中心歌曲信息
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songDict];
@@ -128,27 +177,7 @@
     }
     
 }
--(UIImage *)addText:(UIImage *)img text:(NSString *)text1
-{
-    //上下文的大小
-    int w = img.size.width;
-    int h = img.size.height;
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();//创建颜色
-    //创建上下文
-    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 44 * w, colorSpace, kCGImageAlphaPremultipliedFirst);
-    CGContextDrawImage(context, CGRectMake(0, 0, w, h), img.CGImage);//将img绘至context上下文中
-    CGContextSetRGBFillColor(context, 0.0, 1.0, 1.0, 1);//设置颜色
-    char* text = (char *)[text1 cStringUsingEncoding:NSASCIIStringEncoding];
-    CGContextSelectFont(context, "Georgia", 30, kCGEncodingMacRoman);//设置字体的大小
-    CGContextSetTextDrawingMode(context, kCGTextFill);//设置字体绘制方式
-    CGContextSetRGBFillColor(context, 255, 0, 0, 1);//设置字体绘制的颜色
-    CGContextShowTextAtPoint(context, w/2-strlen(text)*5, 10, text, strlen(text));//设置字体绘制的位置
-    //Create image ref from the context
-    CGImageRef imageMasked = CGBitmapContextCreateImage(context);//创建CGImage
-    CGContextRelease(context);
-    CGColorSpaceRelease(colorSpace);
-    return [UIImage imageWithCGImage:imageMasked];//获得添加水印后的图片   
-}
+
 -(void)setModel:(MusicModel *)model
 {
     self.titleLabel.text = model.name;
@@ -211,12 +240,14 @@
     isPlaying = !isPlaying;
     if (isPlaying) {
         [self.helper.aPlayer play];
+        _timer.fireDate = [NSDate distantPast];
         [self setlocakName];
         [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
         self.playerTimer.fireDate = [NSDate date];
     }else
     {
         [self.helper.aPlayer pause];
+        _timer.fireDate = [NSDate distantFuture];
         [self.bgView.layer removeAnimationForKey:@"xuan"];
         self.playerTimer.fireDate = [NSDate distantFuture];
     }
@@ -284,6 +315,7 @@
 -(void)pauseStreamer
 {
     [self.helper.aPlayer pause];
+    _timer.fireDate  = [NSDate distantFuture];
     [self.bgView.layer removeAnimationForKey:@"xuan"];
     self.playerTimer.fireDate = [NSDate distantFuture];
 }
@@ -291,6 +323,7 @@
 -(void)playStreamer
 {
     [self.helper.aPlayer play];
+    _timer.fireDate = [NSDate distantPast];
     [self setlocakName];
     [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
     self.playerTimer.fireDate = [NSDate date];

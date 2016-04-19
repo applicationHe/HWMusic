@@ -95,6 +95,7 @@
 		183900F41CBF4E290070D391 /* MusicDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183900F31CBF4E290070D391 /* MusicDownCell.m */; };
 		183CDC291CBDE8D2005502DB /* MusicList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183CDC281CBDE8D2005502DB /* MusicList.plist */; };
 		183CDC2C1CBDECE7005502DB /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CDC2B1CBDECE7005502DB /* MusicModel.m */; };
+		18C5409C1CC60D82009CBB21 /* MusicImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C5409B1CC60D82009CBB21 /* MusicImageView.m */; };
 		8426163A1CB88BE30079C1CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842616391CB88BE30079C1CB /* main.m */; };
 		8426163D1CB88BE30079C1CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426163C1CB88BE30079C1CB /* AppDelegate.m */; };
 		842616431CB88BE30079C1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842616411CB88BE30079C1CB /* Main.storyboard */; };
@@ -235,6 +236,8 @@
 		183CDC281CBDE8D2005502DB /* MusicList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MusicList.plist; sourceTree = "<group>"; };
 		183CDC2A1CBDECE7005502DB /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
 		183CDC2B1CBDECE7005502DB /* MusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
+		18C5409A1CC60D82009CBB21 /* MusicImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicImageView.h; sourceTree = "<group>"; };
+		18C5409B1CC60D82009CBB21 /* MusicImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicImageView.m; sourceTree = "<group>"; };
 		5E42DD6ACD692C6A49D8C383 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		842616351CB88BE20079C1CB /* HWMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842616391CB88BE30079C1CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 				183701EA1CBCF8D500B1577D /* HPlayView.m */,
 				183701EC1CBCFA0D00B1577D /* PlayerHelper.h */,
 				183701ED1CBCFA0D00B1577D /* PlayerHelper.m */,
+				18C5409A1CC60D82009CBB21 /* MusicImageView.h */,
+				18C5409B1CC60D82009CBB21 /* MusicImageView.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -952,6 +957,7 @@
 				8464769F1CB8EB28006C2BB3 /* HNavigationController.m in Sources */,
 				846476981CB8E5D4006C2BB3 /* Common.m in Sources */,
 				18075C7B1CBB547300BE5D14 /* MusicTypeModel.m in Sources */,
+				18C5409C1CC60D82009CBB21 /* MusicImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
