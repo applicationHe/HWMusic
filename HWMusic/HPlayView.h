@@ -35,6 +35,8 @@
 
 @property (nonatomic,strong)UILabel * titleLabel;
 
+@property (nonatomic,assign)BOOL isPlaying;
+
 @property (nonatomic,strong)PlayerHelper * helper;
 
 @property (nonatomic,weak)id<PlayDelegate>delegate;

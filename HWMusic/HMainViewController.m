@@ -10,8 +10,9 @@
 #import "SwipeView.h"
 #import "VCHeader.h"
 #import "HPlayView.h"
+#import "HMusicPlayerViewController.h"
 
-@interface HMainViewController ()<SwipeViewDataSource,SwipeViewDelegate,UIGestureRecognizerDelegate>
+@interface HMainViewController ()<SwipeViewDataSource,SwipeViewDelegate,UIGestureRecognizerDelegate,PlayDelegate>
 {
     NSMutableArray * _btnArr;
     NSArray * _titleArr;
@@ -39,6 +40,7 @@
     playView.frame = CGRectMake(SCREEN_WIDTH-110, 10, 100, 100);
     playView.layer.cornerRadius = 50.0f;
     playView.layer.masksToBounds = YES;
+    playView.delegate = self;
     [playView initUI];
     [self.view addSubview:playView];
     UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
@@ -83,6 +85,12 @@
     if (swipeView.currentItemIndex==1) {
         self.navigationItem.rightBarButtonItem = nil;
     }
+}
+
+-(void)goMusic
+{
+    HMusicPlayerViewController * playVC = [[HMusicPlayerViewController alloc] init];
+    [self.navigationController pushViewController:playVC animated:YES];
 }
 
 #pragma mark - Event

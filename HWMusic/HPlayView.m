@@ -14,7 +14,7 @@
 
 @implementation HPlayView
 {
-    BOOL isPlaying;
+//    BOOL isPlaying;
     CAKeyframeAnimation * _ani;
     HSDownloadManager * _downManager;
     MusicImageView * _imageView;
@@ -60,7 +60,7 @@
     [self createAni];
     _downManager = [HSDownloadManager sharedInstance];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-    isPlaying = NO;
+    self.isPlaying = NO;
     MusicModel * model = self.dataSource[self.currentIndex];
     [self setModel:model];
     
@@ -166,7 +166,7 @@
     //歌曲的总时间
     [songDict setObject:[NSNumber numberWithDouble:CMTimeGetSeconds(self.playerItem.duration)] forKey:MPMediaItemPropertyPlaybackDuration];
 //        [songDict setObject:[NSNumber numberWithFloat:1.22f] forKeyedSubscript:MPNowPlayingInfoPropertyElapsedPlaybackTime];
-        [songDict setObject:[NSNumber numberWithFloat:55.0f] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        [songDict setObject:[NSNumber numberWithDouble:CMTimeGetSeconds(self.playerItem.currentTime)] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
     //设置歌曲图片
 //    UIImage * image = [self addText:_imageView.myimage text:@"我感动天,感动地"];
     MPMediaItemArtwork *imageItem=[[MPMediaItemArtwork alloc]initWithImage:_imageView.myimage];
@@ -206,7 +206,7 @@
         [self addSubview:_bgView];
         _bgView.backgroundColor = [UIColor redColor];
         _bgView.image = [UIImage imageNamed:@"default"];
-        isPlaying = NO;
+        self.isPlaying = NO;
         UITapGestureRecognizer * tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clicked:)];
         _bgView.userInteractionEnabled = YES;
         [_bgView addGestureRecognizer:tgr];
@@ -237,8 +237,8 @@
 
 -(void)clicked:(id)sender
 {
-    isPlaying = !isPlaying;
-    if (isPlaying) {
+    self.isPlaying = !self.isPlaying;
+    if (self.isPlaying) {
         [self.helper.aPlayer play];
         _timer.fireDate = [NSDate distantPast];
         [self setlocakName];
@@ -255,18 +255,9 @@
 
 -(void)goMusic:(id)sender
 {
-    [self.playerTimer invalidate];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.currentItem = nil;
-        self.playerItem = nil;
-        self.currentIndex ++;
-        NSLog(@"%ld",self.currentIndex);
-        if (self.currentIndex == self.dataSource.count) {
-            self.currentIndex = 0;
-        }
-        MusicModel * model = self.dataSource[self.currentIndex];
-        [self setModel:model];
-    });
+    if ([self performSelector:@selector(goMusic)]) {
+        [self.delegate goMusic];
+    }
 }
 - (void)playerItemAction:(AVPlayerItem *)item {
     [self.playerTimer invalidate];
@@ -307,7 +298,7 @@
 
 -(void)didBecomeActive
 {
-    if (isPlaying) {
+    if (self.isPlaying) {
        [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
     }
 }
@@ -316,6 +307,7 @@
 {
     [self.helper.aPlayer pause];
     _timer.fireDate  = [NSDate distantFuture];
+    self.isPlaying = NO;
     [self.bgView.layer removeAnimationForKey:@"xuan"];
     self.playerTimer.fireDate = [NSDate distantFuture];
 }
@@ -325,6 +317,7 @@
     [self.helper.aPlayer play];
     _timer.fireDate = [NSDate distantPast];
     [self setlocakName];
+    self.isPlaying = YES;
     [self.bgView.layer addAnimation:_ani forKey:@"xuan"];
     self.playerTimer.fireDate = [NSDate date];
 }
